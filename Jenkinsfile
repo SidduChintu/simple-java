@@ -24,13 +24,13 @@ pipeline {
     }
     stage('Push Artifact to S3') {
       steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://sid-bucket-jenkins'
+        sh 'aws s3 cp webapp/target/webapp.war s3://createdfordemo'
       }
     }
     
     stage('Deploy to tomcat') {
       steps {
-        sh 'sudo scp -i $tomcat_pem -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@65.1.109.181:/opt/tomcat/webapps'
+        sh 'sudo scp -i $tomcat_pem -o "StrictHostKeyChecking=no" webapp/target/webapp.war ubuntu@15.207.71.19:/opt/tomcat/webapps'
       }
     }
 //     stage('building docker image from docker file by tagging') {
