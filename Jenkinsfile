@@ -7,7 +7,7 @@ pipeline {
    stage ('Initialize') {
             steps {
                 sh '''
-                    M2_HOME=/opt/maven
+                    M2_HOME=/opt/Maven
                     M2=/opt/maven/bin
                     PATH=$PATH:$HOME/bin/:$JAVA_HOME:$M2:$M2_HOME
                     export PATH
