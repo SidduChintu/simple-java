@@ -2,7 +2,7 @@
   become: true
   tasks:
     - copy:
-       src: /webapps/target/webapp.war
+       src: /var/lib/jenkins/workspace/maven/webapp/target/webapp.war
        dest: /home/ubuntu
    #- name: Log into DockerHub
      #docker_login:
