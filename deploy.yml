@@ -1,9 +1,17 @@
 - hosts: all
   become: true
   tasks:
-    - copy:
-       src: /var/lib/jenkins/workspace/maven/webapp/target/webapp.war
-       dest: /home/ubuntu
+    - name: apache2
+      apt:
+       name: apache2
+       state: present
+      register: out
+
+    - name: starting apache2 service
+      service:
+       name: apache2
+       state: started
+      when: out.changed == True
    #- name: Log into DockerHub
      #docker_login:
      # username: phanirudra9
