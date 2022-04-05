@@ -22,11 +22,11 @@ pipeline {
         sh 'mvn clean install package'
       }
     }
-    stage('Push Artifact to S3') {
-      steps {
-        sh 'aws s3 cp webapp/target/webapp.war s3://dome-bkt'
-      }
-    }
+//    stage('Push Artifact to S3') {
+//      steps {
+//        sh 'aws s3 cp webapp/target/webapp.war s3://dome-bkt'
+//      }
+//    }
     
     stage('Deploy to tomcat') {
       steps {
